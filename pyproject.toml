@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "grafana-kusto-free-bridge"
+dynamic = ["version"]
+description = "Local Azure Managed Identity Token Bridge for connecting Grafana to a Free Azure Data Explorer (Kusto) cluster using a personal Microsoft Account (az login)"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Rolf Greven" }
+]
+keywords = [
+    "grafana",
+    "kusto",
+    "azure-data-explorer",
+    "adx",
+    "free-cluster",
+    "managed-identity",
+    "aadsts5000225",
+    "aadsts9002332",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: No Input/Output (Daemon)",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Database",
+    "Topic :: System :: Monitoring",
+]
+dependencies = [
+    "azure-identity>=1.15.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Grrrolf/grafana-kusto-free-bridge"
+Repository = "https://github.com/Grrrolf/grafana-kusto-free-bridge"
+Issues = "https://github.com/Grrrolf/grafana-kusto-free-bridge/issues"
+
+[project.scripts]
+grafana-kusto-free-bridge = "grafana_kusto_free_bridge:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.hatch.version]
+path = "grafana_kusto_free_bridge.py"
+
+[tool.hatch.build.targets.wheel]
+include = ["grafana_kusto_free_bridge.py"]

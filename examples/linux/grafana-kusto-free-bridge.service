@@ -1,0 +1,22 @@
+# Bridge unit file: /etc/systemd/system/grafana-kusto-free-bridge.service
+#
+# Also configure grafana-server.service via `sudo systemctl edit grafana-server.service`:
+#   [Service]
+#   Environment="IDENTITY_ENDPOINT=http://127.0.0.1:18492/token"
+#   Environment="IDENTITY_HEADER=kusto-local-bridge"
+
+[Unit]
+Description=Grafana Free Azure Data Explorer (Kusto) Managed Identity Token Bridge
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_USERNAME
+Environment=HOME=/home/YOUR_USERNAME
+Environment=IDENTITY_HEADER=kusto-local-bridge
+ExecStart=/usr/local/bin/uv run --script /opt/grafana-kusto-free-bridge/grafana_kusto_free_bridge.py
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,224 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" width="1200" height="540">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f242d"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <clipPath id="clipCard250">
+      <rect x="0" y="0" width="250" height="150" rx="12"/>
+    </clipPath>
+    <clipPath id="clipCard400">
+      <rect x="0" y="0" width="400" height="150" rx="12"/>
+    </clipPath>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#ff7b00"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#3fb950"/>
+    </marker>
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#39c5cf"/>
+    </marker>
+  </defs>
+
+  <!-- Outer Background -->
+  <rect x="2" y="2" width="1196" height="536" rx="16" fill="url(#bgGrad)" stroke="#30363d" stroke-width="2"/>
+
+  <!-- Header -->
+  <text x="600" y="42" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#f0f6fc">
+    grafana-kusto-free-bridge — Architecture &amp; Authentication Flow
+  </text>
+  <text x="600" y="68" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13.5" fill="#8b949e">
+    Connects Grafana to a Free Azure Data Explorer (Kusto) Cluster using your Personal Microsoft Account (az login)
+  </text>
+  <line x1="50" y1="86" x2="1150" y2="86" stroke="#21262d" stroke-width="1.5"/>
+
+  <!-- ==================== TOP ROW: 3 MAIN NODES ==================== -->
+
+  <!-- NODE 1: Grafana ADX Plugin -->
+  <g transform="translate(50, 120)">
+    <g clip-path="url(#clipCard250)">
+      <rect x="0" y="0" width="250" height="150" fill="url(#cardGrad)"/>
+      <rect x="0" y="0" width="250" height="7" fill="#ff7b00"/>
+    </g>
+    <rect x="0" y="0" width="250" height="150" rx="12" fill="none" stroke="#ff7b00" stroke-width="2"/>
+    <text x="125" y="34" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#f0f6fc">
+      Grafana Server
+    </text>
+    <text x="125" y="55" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#ffb77c">
+      Azure Data Explorer Plugin
+    </text>
+    <rect x="22" y="70" width="206" height="28" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+    <text x="125" y="88" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5" fill="#e6edf3">
+      Auth: Managed Identity
+    </text>
+    <text x="125" y="118" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" fill="#8b949e">
+      IDENTITY_ENDPOINT=127.0.0.1:18492
+    </text>
+    <text x="125" y="135" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5" fill="#8b949e">
+      IDENTITY_HEADER=&lt;shared-secret&gt;
+    </text>
+  </g>
+
+  <!-- NODE 2: grafana-kusto-free-bridge -->
+  <g transform="translate(475, 120)">
+    <g clip-path="url(#clipCard250)">
+      <rect x="0" y="0" width="250" height="150" fill="url(#cardGrad)"/>
+      <rect x="0" y="0" width="250" height="7" fill="#3fb950"/>
+    </g>
+    <rect x="0" y="0" width="250" height="150" rx="12" fill="none" stroke="#3fb950" stroke-width="2"/>
+    <text x="125" y="34" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#f0f6fc">
+      grafana-kusto-free-bridge
+    </text>
+    <text x="125" y="55" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#7ee787">
+      http://127.0.0.1:18492/token
+    </text>
+    <rect x="18" y="70" width="214" height="28" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+    <text x="125" y="88" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#e6edf3">
+      AppService MSI Emulator
+    </text>
+    <text x="125" y="118" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" fill="#8b949e">
+      • Constant-time HMAC secret check
+    </text>
+    <text x="125" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" fill="#8b949e">
+      • Kusto scope guard &amp; token cache
+    </text>
+  </g>
+
+  <!-- NODE 3: AzureCliCredential (az login) -->
+  <g transform="translate(900, 120)">
+    <g clip-path="url(#clipCard250)">
+      <rect x="0" y="0" width="250" height="150" fill="url(#cardGrad)"/>
+      <rect x="0" y="0" width="250" height="7" fill="#58a6ff"/>
+    </g>
+    <rect x="0" y="0" width="250" height="150" rx="12" fill="none" stroke="#58a6ff" stroke-width="2"/>
+    <text x="125" y="34" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#f0f6fc">
+      AzureCliCredential
+    </text>
+    <text x="125" y="55" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="12.5" fill="#79c0ff">
+      Local Azure CLI Session (az)
+    </text>
+    <rect x="18" y="70" width="214" height="28" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+    <text x="125" y="88" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#e6edf3">
+      tenantId: "organizations"
+    </text>
+    <text x="125" y="118" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#8b949e">
+      Personal Microsoft Account
+    </text>
+    <text x="125" y="135" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#79c0ff">
+      msauser=you@outlook.com
+    </text>
+  </g>
+
+  <!-- ==================== ARROWS BETWEEN TOP ROW NODES ==================== -->
+
+  <!-- Step 1: Grafana -> Bridge -->
+  <line x1="304" y1="164" x2="467" y2="164" stroke="#ff7b00" stroke-width="2.2" marker-end="url(#arrowOrange)"/>
+  <circle cx="332" cy="133" r="9.5" fill="#ff7b00"/>
+  <text x="332" y="137" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#0d1117">1</text>
+  <text x="348" y="137" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="600" fill="#ffb77c">
+    GET /token (MSI)
+  </text>
+  <text x="387" y="153" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#8b949e">
+    ?resource=kvc* + Header
+  </text>
+
+  <!-- Step 4: Bridge -> Grafana -->
+  <line x1="471" y1="228" x2="308" y2="228" stroke="#3fb950" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
+  <circle cx="322" cy="249" r="9.5" fill="#3fb950"/>
+  <text x="322" y="253" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#0d1117">4</text>
+  <text x="337" y="253" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="600" fill="#7ee787">
+    200 OK (MSI JSON)
+  </text>
+  <text x="387" y="269" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#8b949e">
+    {access_token, expires_on}
+  </text>
+
+  <!-- Step 2: Bridge -> AzureCliCredential -->
+  <line x1="729" y1="164" x2="892" y2="164" stroke="#58a6ff" stroke-width="2.2" marker-end="url(#arrowBlue)"/>
+  <circle cx="746" cy="133" r="9.5" fill="#58a6ff"/>
+  <text x="746" y="137" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#0d1117">2</text>
+  <text x="762" y="137" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="600" fill="#79c0ff">
+    get_token(scope)
+  </text>
+  <text x="812" y="153" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#8b949e">
+    https://kvc*/.default
+  </text>
+
+  <!-- Step 3: AzureCliCredential -> Bridge -->
+  <line x1="896" y1="228" x2="733" y2="228" stroke="#3fb950" stroke-width="2.2" marker-end="url(#arrowGreen)"/>
+  <circle cx="746" cy="249" r="9.5" fill="#3fb950"/>
+  <text x="746" y="253" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#0d1117">3</text>
+  <text x="762" y="253" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="600" fill="#7ee787">
+    Live MSA Bearer JWT
+  </text>
+  <text x="812" y="269" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#8b949e">
+    Cached until expiry - 120s
+  </text>
+
+  <!-- ==================== BOTTOM ROW: KUSTO CLUSTER & BYPASSED TRAPS ==================== -->
+
+  <!-- Step 5 Path: Grafana (x=175, y=274) down to y=420 and right to x=392 -->
+  <path d="M 175 274 L 175 420 L 392 420" fill="none" stroke="#39c5cf" stroke-width="2.5" marker-end="url(#arrowCyan)"/>
+  <circle cx="202" cy="398" r="9.5" fill="#39c5cf"/>
+  <text x="202" y="402" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#0d1117">5</text>
+  <text x="218" y="402" text-anchor="start" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" font-weight="600" fill="#56d4dd">
+    POST /v1/rest/query
+  </text>
+  <text x="285" y="440" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10.5" fill="#8b949e">
+    Authorization: Bearer &lt;MSA JWT&gt;
+  </text>
+
+  <!-- NODE 4: Free Kusto Cluster -->
+  <g transform="translate(400, 350)">
+    <g clip-path="url(#clipCard400)">
+      <rect x="0" y="0" width="400" height="150" fill="url(#cardGrad)"/>
+      <rect x="0" y="0" width="400" height="7" fill="#39c5cf"/>
+    </g>
+    <rect x="0" y="0" width="400" height="150" rx="12" fill="none" stroke="#39c5cf" stroke-width="2"/>
+    <text x="200" y="34" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="16" font-weight="700" fill="#f0f6fc">
+      Free Azure Data Explorer (Kusto) Cluster
+    </text>
+    <text x="200" y="55" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" fill="#56d4dd">
+      https://kvc*.&lt;region&gt;.kusto.windows.net
+    </text>
+    <rect x="30" y="70" width="340" height="28" rx="6" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+    <text x="200" y="88" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#7ee787">
+      Cluster AllDatabasesAdmin: msauser=you@outlook.com
+    </text>
+    <text x="200" y="118" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" fill="#8b949e">
+      Executes KQL queries directly as cluster owner
+    </text>
+    <text x="200" y="135" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="11.5" fill="#8b949e">
+      no Entra directory needed
+    </text>
+  </g>
+
+  <!-- Callout Box: Entra ID Roadblocks Eliminated -->
+  <g transform="translate(845, 350)">
+    <rect x="0" y="0" width="305" height="150" rx="12" fill="#161b22" stroke="#f85149" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <text x="152" y="30" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13.5" font-weight="700" fill="#ff7b72">
+      Entra ID Roadblocks Eliminated
+    </text>
+    <line x1="20" y1="42" x2="285" y2="42" stroke="#30363d" stroke-width="1"/>
+    <text x="20" y="66" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="600" fill="#ffa198">
+      ✕ AADSTS5000225
+    </text>
+    <text x="34" y="83" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#8b949e">
+      Free Entra tenants blocked for inactivity
+    </text>
+    <text x="20" y="106" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="600" fill="#ffa198">
+      ✕ AADSTS9002332
+    </text>
+    <text x="34" y="123" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#8b949e">
+      Personal MSA /consumers authority rejected
+    </text>
+  </g>
+</svg>
